@@ -1,4 +1,4 @@
-
+import Form from 'next/form'
 
 export default async function Home({searchParams}){
 
@@ -12,9 +12,17 @@ export default async function Home({searchParams}){
     let message = await response.text()
     console.log(message)
     message = JSON.parse(message)
+    
+    const username = await searchParams.username
+    const password = await searchParams.password
     return (<>
         <h2>Welcome home {body.username}</h2>
         <h3>{message["message"]}</h3>
+        <Form action="/buy">
+            <input type="submit" value="Buy Product"></input>
+            <input type='hidden' value={username} name='username'></input>
+            <input type='hidden' value={password} name='password'></input>
+        </Form>
         </>
     )
 }
