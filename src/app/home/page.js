@@ -18,8 +18,8 @@ export default async function Home({searchParams}){
     return (<>
         <h2>Welcome home {body.username}</h2>
         <h3>{message["message"]}</h3>
-        <Form action="/buy">
-            <input type="submit" value="Buy Product"></input>
+        <Form action="/buySell">
+            <input type="submit" value="Buy or Sell Product"></input>
             <input type='hidden' value={username} name='username'></input>
             <input type='hidden' value={password} name='password'></input>
         </Form>
