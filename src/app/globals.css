@@ -1,0 +1,31 @@
+body{
+    background-color:  #2A363B;
+}
+
+input,select{
+    background-color: #FECEA8;
+    color: #2A363B;
+    border-radius: 20px;
+    margin-top:10px;
+    width: 200px;
+}
+
+input:hover{
+    background-color: #FF847C;
+}
+
+Form{
+    margin: auto;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2,h1{
+    margin: auto;
+    color: #FF847C;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}

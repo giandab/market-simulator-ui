@@ -1,7 +1,7 @@
 import Form from 'next/form'
 import { redirect } from 'next/navigation'
 
-export default async function BuyOrSell({searchParams}){
+export default async function DepositWithdraw({searchParams}){
     const input = await searchParams
     
     async function transact(formData){

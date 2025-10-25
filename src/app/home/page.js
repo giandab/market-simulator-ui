@@ -1,4 +1,6 @@
 import Form from 'next/form'
+import LineChart from './LineChart'
+
 
 export default async function Home({searchParams}){
 
@@ -7,23 +9,45 @@ export default async function Home({searchParams}){
     let response = await fetch("http://127.0.0.1:8000/getPositions",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
+
+    let balanceOverTime = await fetch("http://127.0.0.1:8000/getBalanceOverTime",{method:"POST",body:JSON.stringify(body),headers: {
+          "Content-type": "application/json",
+        },})
     
     
-    let message = await response.text()
-    console.log(message)
-    message = JSON.parse(message)
+    let messagePositions = await response.text()
+    console.log(messagePositions)
+    messagePositions = JSON.parse(messagePositions)
 
     let positions = []
-    for(const row of message["message"]){
+    for(const row of messagePositions["message"]){
+        if(row[1]!=0){
         positions.push([row[1],row[2]])
+        }
     }
 
+    let messageBalance = await balanceOverTime.text()
+    messageBalance = JSON.parse(messageBalance)
+    balanceOverTime = messageBalance["message"]
+    console.log(balanceOverTime["2025-10-24"])
+
+    let dates = []
+    let balance= []
+
+    console.log(balanceOverTime)
+
+    for (const date of Object.keys(balanceOverTime)){
+        dates.push(date)
+        balance.push(balanceOverTime[date])
+    }
     
+
     const username = await searchParams.username
     const password = await searchParams.password
     return (<>
         <h2>Welcome home {body.username}</h2>
         <h3>{positions}</h3>
+        <LineChart dates={dates} balance={balance}></LineChart>
         <Form action="/buySell">
             <input type="submit" value="Buy or Sell Product"></input>
             <input type='hidden' value={username} name='username'></input>

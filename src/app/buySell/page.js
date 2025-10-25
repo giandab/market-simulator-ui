@@ -1,4 +1,5 @@
 import Form from 'next/form'
+import { redirect } from 'next/navigation'
 
 export default async function BuyOrSell({searchParams}){
     const input = await searchParams
@@ -12,7 +13,8 @@ export default async function BuyOrSell({searchParams}){
           "Content-type": "application/json",
         },})
 
-        console.log(response.text())}
+        redirect('http://localhost:3000/buySell?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
+    }
 
         else{
             let body = {"username":input.username,"password":input.password, "name":formData.get('name'), "amount":formData.get('amount')}
@@ -20,8 +22,12 @@ export default async function BuyOrSell({searchParams}){
         let response = await fetch("http://127.0.0.1:8000/sell",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
-        console.log(response.text())
+        redirect('http://localhost:3000/buySell?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
         }
+    }
+
+    if (input.res){
+        return (<><h3>{input.res}</h3></>)
     }
     
     return (<>
