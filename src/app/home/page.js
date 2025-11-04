@@ -1,5 +1,6 @@
 import Form from 'next/form'
 import LineChart from './LineChart'
+import BasicTable from './Table'
 
 
 export default async function Home({searchParams}){
@@ -19,10 +20,13 @@ export default async function Home({searchParams}){
     console.log(messagePositions)
     messagePositions = JSON.parse(messagePositions)
 
+    function createData(product,amount){
+        return {product,amount};
+    }
     let positions = []
     for(const row of messagePositions["message"]){
         if(row[1]!=0){
-        positions.push([row[1],row[2]])
+        positions.push(createData(row[2],row[1]))
         }
     }
 
@@ -46,8 +50,8 @@ export default async function Home({searchParams}){
     const password = await searchParams.password
     return (<>
         <h2>Welcome home {body.username}</h2>
-        <h3>{positions}</h3>
         <LineChart dates={dates} balance={balance}></LineChart>
+        <BasicTable positions={positions}></BasicTable>
         <Form action="/buySell">
             <input type="submit" value="Buy or Sell Product"></input>
             <input type='hidden' value={username} name='username'></input>
