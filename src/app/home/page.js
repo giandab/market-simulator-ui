@@ -50,8 +50,14 @@ export default async function Home({searchParams}){
     const password = await searchParams.password
     return (<>
         <h2>Welcome home {body.username}</h2>
+        <div className="homeContainer">
+            <div className='homeWidget'>
         <LineChart dates={dates} balance={balance}></LineChart>
+        </div>
+        <div className='homeWidget' style={{width:"20%"}}>
         <BasicTable positions={positions}></BasicTable>
+        </div>
+        </div>
         <Form action="/buySell">
             <input type="submit" value="Buy or Sell Product"></input>
             <input type='hidden' value={username} name='username'></input>
