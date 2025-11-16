@@ -2,7 +2,7 @@ body{
     background-color:  #2A363B;
 }
 
-input,select{
+input,select,button{
     background-color: #FECEA8;
     color: #2A363B;
     border-radius: 20px;
@@ -10,11 +10,11 @@ input,select{
     width: 200px;
 }
 
-input:hover{
+input:hover,button:hover{
     background-color: #FF847C;
 }
 
-Form{
+Form,a{
     margin: auto;
     width: 200px;
     display: flex;
@@ -22,7 +22,7 @@ Form{
     justify-content: center;
 }
 
-h2,h1{
+h2,h1,h3{
     margin: auto;
     color: #FF847C;
     text-align: center;

@@ -10,8 +10,12 @@ export default function Home() {
       <Form action="/login">
         <input name="username" type="text" placeholder="username"></input>
         <input name="password" type="text" placeholder="password"></input>
-        <input type="submit" value="Submit"></input>
+        <input type="submit" value="Login"></input>
       </Form>
+      <h3>Not registered? Click below to Signup</h3>
+      <a href="/signup">
+    <button>Signup</button>
+    </a>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default async function SignupRequest({ searchParams }) {
         },})
 
   return <div>
-    <h3>{response.text()} </h3>
+    <h3>{response["message"].text()} </h3>
     <a href="/">
     <button>You can now login!</button>
     </a>

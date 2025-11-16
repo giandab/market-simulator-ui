@@ -7,7 +7,7 @@ export default function Signup() {
       <Form action="/processSignup">
         <input name="username" type="text" placeholder="username"></input>
         <input name="password" type="text" placeholder="password"></input>
-        <input type="submit" value="Submit"></input>
+        <input type="submit" value="Signup"></input>
       </Form>
     </div>
     );
