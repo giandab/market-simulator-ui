@@ -34,7 +34,7 @@ export default async function BuyOrSell({searchParams}){
         <h2>Buy or Sell asset</h2>
         <Form action={buy}>
             <input type="text" name="name" placeholder="Product"></input>
-            <input type="number" name="amount"></input>
+            <input type="number" name="amount" placeholder="Amount"></input>
             <select name='buy/sell' id='buy/sell'>
             <option value="Buy">Buy</option>
             <option value="Sell">Sell</option>

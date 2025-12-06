@@ -17,7 +17,6 @@ export default async function Home({searchParams}){
     
     
     let messagePositions = await response.text()
-    console.log(messagePositions)
     messagePositions = JSON.parse(messagePositions)
 
     function createData(product,amount){
@@ -33,7 +32,6 @@ export default async function Home({searchParams}){
     let messageBalance = await balanceOverTime.text()
     messageBalance = JSON.parse(messageBalance)
     balanceOverTime = messageBalance["message"]
-    console.log(balanceOverTime["2025-10-24"])
 
     let dates = []
     let balance= []
