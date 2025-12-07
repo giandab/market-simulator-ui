@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-
+import {Link} from "next/link"
  
 export default async function SearchPage({ searchParams }) {
   const input = await searchParams
@@ -20,9 +20,9 @@ export default async function SearchPage({ searchParams }) {
   else{
   return <div>
     <h3>Unable to Login! </h3>
-    <a href="/">
+    <Link href="/">
     <button>Back to Login</button>
-    </a>
+    </Link>
     <a href="/signup">
     <button>Go to signup</button>
     </a>

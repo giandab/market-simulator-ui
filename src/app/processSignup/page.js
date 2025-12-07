@@ -1,3 +1,5 @@
+import {Link} from "next/link"
+
 export default async function SignupRequest({ searchParams }) {
   const input = await searchParams
 
@@ -9,8 +11,8 @@ export default async function SignupRequest({ searchParams }) {
 
   return <div>
     <h3>{await response["message"].text()} </h3>
-    <a href="/">
+    <Link href="/">
     <button>You can now login!</button>
-    </a>
+    </Link>
         </div>
 }
