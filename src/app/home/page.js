@@ -6,6 +6,8 @@ import BasicTable from './Table'
 export default async function Home({searchParams}){
 
     let body = {"username":searchParams.username,"password":searchParams.password}
+    const username = await searchParams.username
+    const password = await searchParams.password
 
     let response = await fetch("http://127.0.0.1:8000/getPositions",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
@@ -18,6 +20,24 @@ export default async function Home({searchParams}){
     
     let messagePositions = await response.text()
     messagePositions = JSON.parse(messagePositions)
+    if (messagePositions.message == "No Balance history to show yet" || messagePositions.message.length == 0){
+            return (<>
+        <h2>Welcome home {body.username}</h2>
+        <Form action="/buySell">
+            <input type="submit" value="Buy or Sell Product"></input>
+            <input type='hidden' value={username} name='username'></input>
+            <input type='hidden' value={password} name='password'></input>
+        </Form>
+        <Form action="/depositWithdraw">
+            <input type="submit" value="Deposit or Withdraw cash"></input>
+            <input type='hidden' value={username} name='username'></input>
+            <input type='hidden' value={password} name='password'></input>
+        </Form>
+        </>
+    )
+    }
+
+    else{
 
     function createData(product,amount){
         return {product,amount};
@@ -43,9 +63,6 @@ export default async function Home({searchParams}){
         balance.push(balanceOverTime[date])
     }
     
-
-    const username = await searchParams.username
-    const password = await searchParams.password
     return (<>
         <h2>Welcome home {body.username}</h2>
         <div className="homeContainer">
@@ -68,4 +85,5 @@ export default async function Home({searchParams}){
         </Form>
         </>
     )
+}
 }
