@@ -13,7 +13,7 @@ export default async function BuyOrSell({searchParams}){
           "Content-type": "application/json",
         },})
 
-        redirect('http://localhost:3000/buySell?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
+        redirect('http://localhost:3001/buySell?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
     }
 
         else{
@@ -22,7 +22,7 @@ export default async function BuyOrSell({searchParams}){
         let response = await fetch("http://127.0.0.1:8000/sell",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
-        redirect('http://localhost:3000/buySell?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
+        redirect('http://localhost:3001/buySell?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
         }
     }
 

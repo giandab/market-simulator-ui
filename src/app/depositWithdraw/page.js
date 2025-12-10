@@ -11,7 +11,7 @@ export default async function DepositWithdraw({searchParams}){
         let response = await fetch("http://127.0.0.1:8000/withdraw",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
-        redirect('http://localhost:3000/depositWithdraw?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
+        redirect('http://localhost:3001/depositWithdraw?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
 }
 
         else{
@@ -19,7 +19,7 @@ export default async function DepositWithdraw({searchParams}){
         let response = await fetch("http://127.0.0.1:8000/deposit",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
-        redirect('http://localhost:3000/depositWithdraw?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
+        redirect('http://localhost:3001/depositWithdraw?'+'username='+input.username+'&password='+input.password+'&res='+ await response.text());
         }
     }
 

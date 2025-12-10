@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import {Link} from "next/link"
+import Link from "next/link"
  
 export default async function SearchPage({ searchParams }) {
   const input = await searchParams
