@@ -10,5 +10,5 @@ The UI component of the Market Simulator App.
 
 ## Playwright Tests
 
-- Ensure the development server is running
+- Ensure the development server is running, including the backend.
 - Run `npx playwright test` or `npx playwright test --ui` to view the tests in the ui.

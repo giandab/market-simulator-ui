@@ -25,7 +25,7 @@ const testPassword = "test1"
 let body = {"username":testUsername,"password":testPassword}
 
 test('sign up', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
+  await page.goto('http://localhost:3001/');
   await expect(page).toHaveTitle("Market Simulator");
 
   //go to signup page
