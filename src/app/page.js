@@ -9,7 +9,7 @@ export default function Home() {
       <h1>Market Simulator</h1>
       <Form action="/login">
         <input name="username" type="text" placeholder="username"></input>
-        <input name="password" type="text" placeholder="password"></input>
+        <input name="password" type="password" placeholder="password"></input>
         <input type="submit" value="Login"></input>
       </Form>
       <h3>Not registered? Click below to Signup</h3>
