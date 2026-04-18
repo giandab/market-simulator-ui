@@ -4,10 +4,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
-body{
+/* body{
     background-color:  #2A363B;
-}
-
+} */
+/*
 input,select,button{
     background-color: #FECEA8;
     color: #2A363B;
@@ -34,7 +34,7 @@ h2,h1,h3{
     text-align: center;
     margin-top: 100px;
     margin-bottom: 20px;
-}
+} */
 
 .homeContainer{
     display: flex;
@@ -92,7 +92,7 @@ h2,h1,h3{
     --radius-4xl:  calc(var(--radius) * 2.6);
 }
 
-:root {
+/* :root {
     --background:  oklch(1 0 0);
     --foreground:  oklch(0.147 0.004 49.3);
     --card:  oklch(1 0 0);
@@ -125,12 +125,12 @@ h2,h1,h3{
     --sidebar-accent-foreground:  oklch(0.214 0.009 43.1);
     --sidebar-border:  oklch(0.922 0.005 34.3);
     --sidebar-ring:  oklch(0.714 0.014 41.2);
-}
+} */
 
-.dark {
-    --background:  oklch(0.147 0.004 49.3);
+:root {
+    --background:  oklch(20.456% 0.00676 34.142);
     --foreground:  oklch(0.986 0.002 67.8);
-    --card:  oklch(0.214 0.009 43.1);
+    --card:  oklch(33.254% 0.01941 43.78);
     --card-foreground:  oklch(0.986 0.002 67.8);
     --popover:  oklch(0.214 0.009 43.1);
     --popover-foreground:  oklch(0.986 0.002 67.8);

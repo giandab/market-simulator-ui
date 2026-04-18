@@ -1,14 +1,12 @@
-import Form from 'next/form'
+
+import { SignupForm } from "@/components/signup-form"
 
 export default function Signup() {
     return(
-        <div>
-      <h1>Signup</h1>
-      <Form action="/processSignup">
-        <input name="username" type="text" placeholder="username"></input>
-        <input name="password" type="password" placeholder="password"></input>
-        <input type="submit" value="Signup"></input>
-      </Form>
-    </div>
+        <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+              <div className="w-full max-w-sm">
+                <SignupForm />
+              </div>
+            </div>
     );
 }
