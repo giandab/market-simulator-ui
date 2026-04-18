@@ -45,7 +45,5 @@ const data = {
     borderWidth: 1
   }]
 };
-console.log(params.dates)
-console.log(params.balance)
     return(<Line data={data}></Line>)
 }

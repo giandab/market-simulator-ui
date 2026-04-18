@@ -47,5 +47,4 @@ test('sign up', async ({ page }) => {
   let response = await fetch("http://127.0.0.1:8000/deleteUser",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
-    console.log(await response.text())
 });

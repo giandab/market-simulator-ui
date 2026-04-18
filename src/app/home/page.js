@@ -1,14 +1,34 @@
 import Form from 'next/form'
 import LineChart from './LineChart'
 import BasicTable from './Table'
+import Navbar from '@/components/shadcn-studio/blocks/navbar-component-01/navbar-component-01'
 
 
 export default async function Home({searchParams}){
+    searchParams = await searchParams
+
 
     let body = {"username":searchParams.username,"password":searchParams.password}
     const username = await searchParams.username
     const password = await searchParams.password
-
+        const navigationData = [
+  {
+    title: 'Home',
+    href: '/home?username='+username+"&password="+password
+  },
+  {
+    title: 'Buy/Sell',
+    href: '/buySell?username='+username+"&password="+password
+  },
+  {
+    title: 'Deposit/Withdraw',
+    href: '/depositWithdraw?username='+username+"&password="+password
+  },
+  {
+    title: 'Transactions',
+    href: '#'
+  }
+]
     let response = await fetch("http://127.0.0.1:8000/getPositions",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
@@ -56,34 +76,44 @@ export default async function Home({searchParams}){
     let dates = []
     let balance= []
 
-    console.log(balanceOverTime)
-
     for (const date of Object.keys(balanceOverTime)){
         dates.push(date)
         balance.push(balanceOverTime[date])
     }
     
     return (<>
-        <h2>Welcome home {body.username}</h2>
+    {/* // <>
+    //     <h2>Welcome home {body.username}</h2>
+    //     <div className="homeContainer">
+    //         <div className='homeWidget'>
+    //     <LineChart dates={dates} balance={balance}></LineChart>
+    //     </div>
+    //     <div className='homeWidget' style={{width:"20%"}}>
+    //     <BasicTable positions={positions}></BasicTable>
+    //     </div>
+    //     </div>
+    //     <Form action="/buySell">
+    //         <input type="submit" value="Buy or Sell Product"></input>
+    //         <input type='hidden' value={username} name='username'></input>
+    //         <input type='hidden' value={password} name='password'></input>
+    //     </Form>
+    //     <Form action="/depositWithdraw">
+    //         <input type="submit" value="Deposit or Withdraw cash"></input>
+    //         <input type='hidden' value={username} name='username'></input>
+    //         <input type='hidden' value={password} name='password'></input>
+    //     </Form>
+    //     </> */}
+    <Navbar navigationData={navigationData}></Navbar>
+    <br></br>
         <div className="homeContainer">
             <div className='homeWidget'>
         <LineChart dates={dates} balance={balance}></LineChart>
-        </div>
+         </div>
         <div className='homeWidget' style={{width:"20%"}}>
-        <BasicTable positions={positions}></BasicTable>
-        </div>
-        </div>
-        <Form action="/buySell">
-            <input type="submit" value="Buy or Sell Product"></input>
-            <input type='hidden' value={username} name='username'></input>
-            <input type='hidden' value={password} name='password'></input>
-        </Form>
-        <Form action="/depositWithdraw">
-            <input type="submit" value="Deposit or Withdraw cash"></input>
-            <input type='hidden' value={username} name='username'></input>
-            <input type='hidden' value={password} name='password'></input>
-        </Form>
-        </>
+         <BasicTable positions={positions}></BasicTable>
+         </div>
+         </div>
+         </>
     )
 }
 }

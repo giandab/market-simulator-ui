@@ -8,7 +8,7 @@ export default async function BuyOrSell({searchParams}){
 
         if (formData.get('buy/sell')=="Buy"){
         let body = {"username":input.username,"password":input.password, "name":formData.get('name'), "amount":formData.get('amount')}
-        console.log("DEBUGLOG" +body["amount"])
+
         let response = await fetch("http://127.0.0.1:8000/buy",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
@@ -18,7 +18,7 @@ export default async function BuyOrSell({searchParams}){
 
         else{
             let body = {"username":input.username,"password":input.password, "name":formData.get('name'), "amount":formData.get('amount')}
-        console.log("DEBUGLOG" +body["amount"])
+
         let response = await fetch("http://127.0.0.1:8000/sell",{method:"POST",body:JSON.stringify(body),headers: {
           "Content-type": "application/json",
         },})
