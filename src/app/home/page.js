@@ -81,11 +81,12 @@ export default async function Home({searchParams}){
         balance.push(balanceOverTime[date])
     }
     
-    return (<div className='flex flex-1 flex-col'>
+    return (<>
     <Navbar navigationData={navigationData}></Navbar>
+    <div className='flex flex-1 flex-col items-center'>
     <br></br>
-        <div className="homeContainer flex flex-1 flex-col items-center">
-            <div className='homeWidget flex flex-col' style={{width:"80%"}}>
+        <div className="homeContainer flex flex-col items-center "style={{width:"80%",height:"80%"}}>
+            <div className='homeWidget flex flex-1 flex-col' style={{width:"80%",height:"80%"}}>
         <LineChart dates={dates} balance={balance}></LineChart>
          </div>
         <div className='homeWidget flex flex-1 flex-col' style={{width:"20%"}}>
@@ -93,6 +94,7 @@ export default async function Home({searchParams}){
          </div>
          </div>
          </div>
+         </>
     )
 }
 }
