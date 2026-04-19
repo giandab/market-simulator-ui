@@ -81,39 +81,18 @@ export default async function Home({searchParams}){
         balance.push(balanceOverTime[date])
     }
     
-    return (<>
-    {/* // <>
-    //     <h2>Welcome home {body.username}</h2>
-    //     <div className="homeContainer">
-    //         <div className='homeWidget'>
-    //     <LineChart dates={dates} balance={balance}></LineChart>
-    //     </div>
-    //     <div className='homeWidget' style={{width:"20%"}}>
-    //     <BasicTable positions={positions}></BasicTable>
-    //     </div>
-    //     </div>
-    //     <Form action="/buySell">
-    //         <input type="submit" value="Buy or Sell Product"></input>
-    //         <input type='hidden' value={username} name='username'></input>
-    //         <input type='hidden' value={password} name='password'></input>
-    //     </Form>
-    //     <Form action="/depositWithdraw">
-    //         <input type="submit" value="Deposit or Withdraw cash"></input>
-    //         <input type='hidden' value={username} name='username'></input>
-    //         <input type='hidden' value={password} name='password'></input>
-    //     </Form>
-    //     </> */}
+    return (<div className='flex flex-1 flex-col'>
     <Navbar navigationData={navigationData}></Navbar>
     <br></br>
-        <div className="homeContainer">
-            <div className='homeWidget'>
+        <div className="homeContainer flex flex-1 flex-col items-center">
+            <div className='homeWidget flex flex-col' style={{width:"80%"}}>
         <LineChart dates={dates} balance={balance}></LineChart>
          </div>
-        <div className='homeWidget' style={{width:"20%"}}>
+        <div className='homeWidget flex flex-1 flex-col' style={{width:"20%"}}>
          <BasicTable positions={positions}></BasicTable>
          </div>
          </div>
-         </>
+         </div>
     )
 }
 }

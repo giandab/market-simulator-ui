@@ -12,12 +12,12 @@ import Paper from '@mui/material/Paper';
 
 export default function BasicTable(params) {
   return (
-    <TableContainer sx={{backgroundColor:"#485c61ff",minWidth: 200, maxWidth:500}} component={Paper}>
+    <TableContainer sx={{backgroundColor:"rgb(49, 54, 65)",minWidth: 200, maxWidth:500}} component={Paper}>
       <Table sx={{ minWidth: 200, maxWidth:500}} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{ color:"#FF847C"}}>Product</TableCell>
-            <TableCell sx={{ color:"#FF847C"}} align="right">Amount</TableCell>
+            <TableCell sx={{ color:"#943a34"}}>Product</TableCell>
+            <TableCell sx={{ color:"#943a34"}} align="right">Amount</TableCell>
 
           </TableRow>
         </TableHead>

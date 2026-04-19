@@ -1,6 +1,6 @@
 "use client"
 import {Line} from 'react-chartjs-2'
-import Chart from 'chart.js/auto';
+import Chart, { elements } from 'chart.js/auto';
 
 export default function LineChart(params) {
     const labels = params.dates;
@@ -40,7 +40,7 @@ const data = {
       'rgba(201, 203, 207, 0.2)'
     ],
     borderColor: [
-      'rgb(255, 99, 132)',
+      'rgb(185, 58, 41)',
     ],
     borderWidth: 1
   }]
